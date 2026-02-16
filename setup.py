@@ -14,7 +14,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', 'turtlebot3', 'launch'),glob('launch/*.py')),
         (os.path.join('share', 'turtlebot3', 'urdf'),glob('urdf/*.*')),
-        (os.path.join('share', 'turtlebot3', 'config'),glob('config/*.yaml')),
+        (os.path.join('share', 'turtlebot3', 'config'),glob('config/*.*')),
         (os.path.join('share', 'turtlebot3', 'meshes','bases'),glob('meshes/bases/*.stl')),
         (os.path.join('share', 'turtlebot3', 'meshes','sensors'),glob('meshes/sensors/*.*')),
         (os.path.join('share', 'turtlebot3', 'meshes','wheels'),glob('meshes/wheels/*.stl')),
