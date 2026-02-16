@@ -268,7 +268,7 @@
           <min_angular_velocity>-4.0</min_angular_velocity>
           <!-- Output -->
           <frame_id>odom</frame_id>
-          <child_frame_id>base_link</child_frame_id>
+          <child_frame_id>base_footprint</child_frame_id>
 
           <!-- Topics -->
           <topic>/cmd_vel</topic>
@@ -282,14 +282,14 @@
       </plugin>
   </gazebo>
 
-  <gazebo reference="$wheel_right_link">
+  <gazebo reference="wheel_right_link">
       <mu1 value="200.0" />
       <mu2 value="200.0" />
       <kp  value="1000000.0" />
       <kd  value="1.0" />
       <minDepth>0.005</minDepth>
   </gazebo>
-  <gazebo reference="$wheel_left_link">
+  <gazebo reference="wheel_left_link">
       <mu1 value="200.0" />
       <mu2 value="200.0" />
       <kp  value="1000000.0" />
