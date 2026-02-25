@@ -53,7 +53,7 @@ def generate_launch_description():
             '-topic', 'robot_description', 
             '-name', 'turtlebot3', 
             '-x', '-4.0', 
-            '-y', '4.0', 
+            '-y', '4.0',  
             '-z', '0.2'
         ],
         output='screen',
@@ -63,27 +63,15 @@ def generate_launch_description():
     bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        # arguments=[
-        #     '/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock',
-        #     '/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
-        #     '/imu/data@sensor_msgs/msg/Imu@gz.msgs.IMU',
-        #     '/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry',
-        #     '/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
-
-        #     '/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
-        #     '/tf_static@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
-        #     '/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model',
-        # ],
-
         arguments=[
-            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
-            '/scan@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan',
-            '/imu/data@sensor_msgs/msg/Imu[gz.msgs.IMU',
-            '/odom@nav_msgs/msg/Odometry[gz.msgs.Odometry',
-            '/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist',
-            '/tf@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
-            '/tf_static@tf2_msgs/msg/TFMessage[gz.msgs.Pose_V',
-            '/joint_states@sensor_msgs/msg/JointState[gz.msgs.Model',
+            '/clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock',
+            '/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan',
+            '/imu/data@sensor_msgs/msg/Imu@gz.msgs.IMU',
+            '/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry',
+            '/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist',
+            '/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
+            '/tf_static@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V',
+            '/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model',
         ],
         parameters=[{'use_sim_time': use_sim_time}],
         output='screen',
@@ -109,12 +97,11 @@ def generate_launch_description():
         ),
         launch_arguments={
             'use_sim_time': use_sim_time,
-            'slam': 'True',
-            # 'map_subscribe_transient_local': 'true',
+            'slam': 'False',
             'params_file': PathJoinSubstitution([
                     FindPackageShare('turtlebot3'),
                     'config',
-                    'nav2_params.yaml'
+                    'nav2.1_params.yaml'
         ]),
         }.items()
     )
@@ -143,7 +130,7 @@ def generate_launch_description():
 
 
         # Group 4: Intelligence
-        TimerAction(period=12.0, actions=[
+        TimerAction(period=3.0, actions=[
             slam_toolbox,
             nav2,
             rviz_node,
