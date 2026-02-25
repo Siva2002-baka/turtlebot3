@@ -8,8 +8,9 @@ slam_toolbox:
     use_map_saver: true
     mode: localization
     map_file_name: /home/siva/a_ws/src/turtlebot3/maps/mapofmaze
+    # mode: mapping
     # map_start_pose: [-4.0, 4.0, 0.0]
-    map_start_at_dock: true
+    map_start_at_dock: false
 
     # Slam Toolbox Parameters
     debug_logging: false
